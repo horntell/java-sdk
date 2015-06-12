@@ -5,12 +5,9 @@
  */
 package com.horntell.model;
 
-import com.google.gson.JsonArray;
 import com.horntell.exception.HorntellException;
 import com.horntell.exception.AuthenticationException;
 import com.horntell.exception.ForbiddenException;
-import com.horntell.exception.InvalidRequestException;
-import com.horntell.exception.NetworkException;
 import com.horntell.exception.NotFoundException;
 import com.horntell.exception.ServiceException;
 import java.util.Map;

@@ -22,12 +22,10 @@
       <scope>test</scope>
     </dependency>
      <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.4</version>
-        </dependency>
-    
-
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.2.4</version>
+      </dependency>
     <dependency>
       <groupId>com.squareup.okhttp</groupId>
       <artifactId>okhttp</artifactId>
@@ -50,7 +48,7 @@
 
 
 <build>
-   
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -64,6 +62,6 @@
     </plugins>
 
   </build>
-  
- 
+
+
 </project>

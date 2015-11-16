@@ -136,8 +136,8 @@ public class HorntellRequest {
         com.squareup.okhttp.Request request = new com.squareup.okhttp.Request.Builder()
           .url(url)
           .header("Authorization", credential) 
-          .addHeader("Accept", "application/vnd.horntell"+ App.getVersion() +"+json") 
-          .addHeader("Content-Type", "application/json") 
+          .addHeader("Accept", "application/vnd.horntell."+ App.getVersion() +"+json")
+          .addHeader("Content-Type", "text/json")
           .build();
 
         Response response = client.newCall(request).execute();
@@ -157,8 +157,8 @@ public class HorntellRequest {
         request = new com.squareup.okhttp.Request.Builder() 
                 .url(url)
                 .header("Authorization", credential)
-                .addHeader("Accept", "application/vnd.horntell"+ App.getVersion() +"+json")
-                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/vnd.horntell."+ App.getVersion() +"+json")
+                .addHeader("Content-Type", "text/json")
                 .post(body) 
                 .build();
     
@@ -175,8 +175,8 @@ public class HorntellRequest {
         request = new com.squareup.okhttp.Request.Builder() 
                 .url(url)
                 .header("Authorization", credential)
-                .addHeader("Accept", "application/vnd.horntell"+ App.getVersion() +"+json")
-                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/vnd.horntell."+ App.getVersion() +"+json")
+                .addHeader("Content-Type", "text/json")
                 .delete() 
                 .build();
     
@@ -196,8 +196,8 @@ public class HorntellRequest {
         request = new com.squareup.okhttp.Request.Builder() 
                 .url(url)
                 .header("Authorization", credential)
-                .addHeader("Accept", "application/vnd.horntell"+ App.getVersion() +"+json")
-                .addHeader("Content-Type", "application/json")
+                .addHeader("Accept", "application/vnd.horntell."+ App.getVersion() +"+json")
+                .addHeader("Content-Type", "text/json")
                 .put(body) 
                 .build();
     

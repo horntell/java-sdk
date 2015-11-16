@@ -5,14 +5,18 @@
  */
 package com.horntell.net;
 
+import com.google.gson.Gson;
 import com.squareup.okhttp.ResponseBody;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HorntellResponse {
 	
-        ResponseBody responseOrignal;    
+    ResponseBody responseOrignal;
 	int responseCode;
 	String responseBody;
+    public HashMap<String, Object> responseMap;
 	
 	public HorntellResponse(com.squareup.okhttp.Response response) throws IOException {
             this.responseOrignal = response.body();
@@ -38,4 +42,10 @@ public class HorntellResponse {
     {
         return responseOrignal;
     }
+
+    public Map<String,Object> getResponseMap(){
+        return new Gson().fromJson(responseBody,Map.class);
+    }
+
+
 }

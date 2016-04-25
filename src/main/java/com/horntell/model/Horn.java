@@ -21,12 +21,22 @@ import java.io.IOException;
  * @author sahil
  */
 public class Horn {
-     public static HorntellResponse toProfile(String uid, Map<String, Object> params) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
-	return HorntellRequest._request("POST", "/profiles/" +uid+ "/horns", params);
+    
+    public static HorntellResponse toProfile(String uid, Map<String, Object> horn) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+		return HorntellRequest._request("POST", "/profiles/" + uid + "/horns", horn);
     }
      
-    public static HorntellResponse toProfiles(String[] profiles, Map<String, Object> params) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
-        params.put("profile_uids", profiles);
-	return HorntellRequest._request("POST", "/profiles/horns" , params);
+    public static HorntellResponse toProfiles(String[] profileUids, Map<String, Object> horn) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+        horn.put("profile_uids", profileUids);
+		return HorntellRequest._request("POST", "/profiles/horns" , horn);
+    }
+
+    public static HorntellResponse toChannel(String uid, Map<String, Object> horn) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+		return HorntellRequest._request("POST", "/channels/" + uid + "/horns", horn);
+    }
+     
+    public static HorntellResponse toChannels(String[] channelUids, Map<String, Object> horn) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+        horn.put("channel_uids", channelUids);
+		return HorntellRequest._request("POST", "/channels/horns" , horn);
     }
 }

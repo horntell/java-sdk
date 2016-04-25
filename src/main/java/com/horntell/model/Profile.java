@@ -24,20 +24,19 @@ import java.io.IOException;
 public class Profile {
 
     public static HorntellResponse  find(String uid) throws IOException, InvalidRequestException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
-
-	return HorntellRequest._request("GET", "/profiles/"+uid, null);
+	   return HorntellRequest._request("GET", "/profiles/" + uid, null);
     }
     
-    public static HorntellResponse create(Map<String, Object> params) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
-	return HorntellRequest._request("POST", "/profiles", params);
+    public static HorntellResponse create(Map<String, Object> profile) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+	   return HorntellRequest._request("POST", "/profiles", profile);
     }
     
-    public static HorntellResponse update(String uid, Map<String, Object> params) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
-	return HorntellRequest._request("PUT", "/profiles/" +uid, params);
+    public static HorntellResponse update(String uid, Map<String, Object> profile) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+	   return HorntellRequest._request("PUT", "/profiles/" + uid, profile);
     }
     
     public static HorntellResponse delete(String uid) throws IOException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
-	return HorntellRequest._request("DELETE", "/profiles/" +uid, null);
+	   return HorntellRequest._request("DELETE", "/profiles/" + uid, null);
     }
 
 }

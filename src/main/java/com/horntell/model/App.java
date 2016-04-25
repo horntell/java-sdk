@@ -5,6 +5,8 @@
  */
 package com.horntell.model;
 
+import java.security.MessageDigest
+
 /**
  *
  * @author sahil
@@ -58,7 +60,7 @@ public class App {
 	 */
 	public static String getKey()
 	{
-            return key;
+        return key;
 	}
 
 	/**
@@ -78,7 +80,7 @@ public class App {
 	 */
 	public static void setBase(String base)
 	{
-            App.base = base;
+        App.base = base;
 	}
 
 	/**
@@ -88,7 +90,7 @@ public class App {
 	 */
 	public static String getBase()
 	{
-            return base;
+        return base;
 	}
 
 	/**
@@ -98,7 +100,7 @@ public class App {
 	 */
 	public static void setVersion(String version)
 	{
-            App.version = version;
+        App.version = version;
 	}
 
 	/**
@@ -108,7 +110,24 @@ public class App {
 	 */
 	public static String getVersion()
 	{
-            return version;
+        return version;
+	}
+
+	/**
+	 * Returns the hash_hmac value
+	 *
+	 * @return string
+	 */
+	public static String hash(String uid)
+	{
+		try {
+
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			return md.digest((uid + App.secret).getBytes("UTF-8"));
+
+		} catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
+			return e;
+		}
 	}
     
 }

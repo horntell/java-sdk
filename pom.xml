@@ -33,6 +33,16 @@
       <type>jar</type>
     </dependency>
     <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.9</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>3.0-alpha-1</version>
+    </dependency>
+    <dependency>
 	<groupId>org.codehaus.mojo</groupId>
 	<artifactId>dependency-maven-plugin</artifactId>
 	<version>1.0</version>
@@ -43,6 +53,12 @@
 	<artifactId>json</artifactId>
 	<version>20140107</version>
 </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
 

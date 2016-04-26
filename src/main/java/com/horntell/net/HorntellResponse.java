@@ -48,4 +48,13 @@ public class HorntellResponse {
     }
 
 
+    @Override
+    public String toString() {
+        return "HorntellResponse{" +
+                "responseOrignal=" + responseOrignal +
+                ", responseCode=" + responseCode +
+                ", responseBody='" + responseBody + '\'' +
+                ", responseMap=" + responseMap +
+                '}';
+    }
 }

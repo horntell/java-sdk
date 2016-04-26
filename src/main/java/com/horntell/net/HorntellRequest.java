@@ -35,7 +35,7 @@ public class HorntellRequest {
 
     public static HorntellResponse _request(String method, String endpoint, Map<String, Object> params) throws IOException, InvalidRequestException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
          
-        String url = App.getBase() +endpoint;
+        String url = App.getBase() + endpoint;
          
          HorntellRequest horntellRequest = new HorntellRequest();
          

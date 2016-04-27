@@ -3,26 +3,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.horntell</groupId>
-    <artifactId>horntell-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>java-sdk</artifactId>
     <packaging>jar</packaging>
+    <version>0.1.0</version>
 
-    <name>horntell-java</name>
-    <description>Horntell Java SDK</description>
-    <url>http://maven.apache.org</url>
-
-    <repositories>
-        <repository>
-            <id>horntell_java_sdk</id>
-            <name>HorntellJavaSdk</name>
-            <url>http://gitlab.owlgrin.com/devendra/horntell-sdk-java-v1.git</url>
-        </repository>
-    </repositories>
+    <name>java-sdk</name>
+    <description>Horntell SDK for Java</description>
+    <url>https://github.com/horntell/java-sdk</url>
 
     <developers>
         <developer>
             <name>Mohit Mamoria</name>
-            <email>mohit@owlgrin.com</email>
+            <email>mohit@horntell.com</email>
             <organization>Horntell</organization>
             <organizationUrl>http://www.horntell.com</organizationUrl>
         </developer>
@@ -30,30 +22,18 @@
 
     <licenses>
         <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
+            <name>MIT</name>
+            <url>http://choosealicense.com/licenses/mit/</url>
         </license>
     </licenses>
 
-    <!--todo: Change it befor pushing -->
     <scm>
-        <connection>scm:git:git@github.com:juven/git-demo.git</connection>
-        <developerConnection>scm:git:git@github.com:juven/git-demo.git</developerConnection>
-        <url>git@github.com:juven/git-demo.git</url>
+        <connection>scm:git@github.com:horntell/java-sdk.git</connection>
+        <developerConnection>scm:git@github.com:horntell/java-sdk.git</developerConnection>
+        <url>git@github.com:horntell/java-sdk.git</url>
     </scm>
 
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.4</version>
-        </dependency>
         <dependency>
             <groupId>com.squareup.okhttp</groupId>
             <artifactId>okhttp</artifactId>
@@ -70,11 +50,6 @@
             <artifactId>servlet-api</artifactId>
             <version>3.0-alpha-1</version>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>dependency-maven-plugin</artifactId>
-            <version>1.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.json</groupId>
@@ -87,20 +62,23 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
     <build>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -116,7 +94,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -129,7 +106,6 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -142,7 +118,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -158,10 +133,6 @@
                     <additionalparam>-Xdoclint:none</additionalparam>
                 </configuration>
             </plugin>
-
         </plugins>
-
     </build>
-
-
 </project>

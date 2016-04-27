@@ -7,6 +7,54 @@ This SDK allows you to easily integrate Horntell in your Java applications.
 
 Java 1.6 and later.
 
+## Installation
+
+### Maven Users
+
+Add this dependency to your project's POM.
+
+```xml
+<dependency>
+  <groupId>com.stripe</groupId>
+  <artifactId>stripe-java</artifactId>
+  <version>0.1.0</version>
+</dependency>
+```
+
+### Gradle users
+
+Add this dependency to your project's build file:
+
+```groovy
+compile "com.stripe:java-sdk:0.1.0"
+```
+
+### Others
+
+You'll need to manually install the following JARs:
+
+* The Horntell JAR from https://github.com/horntell/java-sdk/releases/latest
+
+## Getting Started
+
+You need to `init`ialize the SDK with the app's key and secret, which you can find in your account at [http://app.horntell.com](http://app.horntell.com). Sample usage looks like this.
+
+```java
+Horntell.App.init('YOUR_APP_KEY', 'YOUR_APP_SECRET');
+
+Map<String,Object> newProfileMap = new HashMap<>();
+newProfileMap.put("uid", "1337");
+newProfileMap.put("first_name", "John");
+newProfileMap.put("last_name", "Doe");
+newProfileMap.put("signedup_at", 1383350400);
+
+Horntell.Profile.create(newProfileMap);
+```
+
+## Documentation
+
+Please see [http://docs.horntell.com/api](http://docs.horntell.com/api/?java) for up-to-date documentation.
+
 ### Authentication
 
 Authentication is easy and one liner, just replace hornokpleasekey & hornokpleasesecret from the code snippet.

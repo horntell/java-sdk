@@ -2,3 +2,11 @@
 .idea/
 target/
 
+*.swp
+.classpath
+.project
+.settings
+tags
+target
+.idea
+*.iml

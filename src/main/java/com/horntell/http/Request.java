@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.horntell.net;
+package com.horntell.http;
 
 
 import com.horntell.exception.*;
-import com.horntell.model.App;
+import com.horntell.App;
+import com.horntell.exception.Exception;
 import com.squareup.okhttp.*;
 import org.json.JSONObject;
 
@@ -17,32 +18,32 @@ import java.util.Map;
 /**
  * @author sahil
  */
-public class HorntellRequest {
+public class Request {
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
 
     OkHttpClient client = new OkHttpClient();
 
-    public static HorntellResponse _request(String method, String endpoint, Map<String, Object> params) throws IOException, InvalidRequestException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+    public static Response _request(String method, String endpoint, Map<String, Object> params) throws IOException, InvalidRequestException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, Exception {
 
         String url = App.getBase() + endpoint;
 
-        HorntellRequest horntellRequest = new HorntellRequest();
+        Request request = new Request();
 
-        HorntellResponse response = null;
+        Response response = null;
 
         switch (method) {
             case "GET":
-                response = horntellRequest.doGetRequest(url);
+                response = request.doGetRequest(url);
                 break;
             case "POST":
-                response = horntellRequest.doPostRequest(url, params);
+                response = request.doPostRequest(url, params);
                 break;
             case "DELETE":
-                response = horntellRequest.doDeleteRequest(url);
+                response = request.doDeleteRequest(url);
                 break;
             case "PUT":
-                response = horntellRequest.doPutRequest(url, params);
+                response = request.doPutRequest(url, params);
                 break;
             default:
                 break;
@@ -55,13 +56,13 @@ public class HorntellRequest {
         }
 
         if (200 < code || code > 300) {
-            HorntellRequest.handleApiExceptions(code, response);
+            Request.handleApiExceptions(code, response);
         }
 
         return response;
     }
 
-    private static HorntellRequest handleApiExceptions(int code, HorntellResponse response) throws InvalidRequestException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, HorntellException {
+    private static Request handleApiExceptions(int code, Response response) throws InvalidRequestException, AuthenticationException, ForbiddenException, NotFoundException, ServiceException, Exception {
         String body = response.getBody();
         JSONObject errorObject = new JSONObject(body);
 
@@ -85,12 +86,12 @@ public class HorntellRequest {
                 // even when we send more variants of HTTP status codes
                 // through API)
             default:
-                return HorntellRequest.handleUnknownException(response);
+                return Request.handleUnknownException(response);
         }
 
     }
 
-    private static HorntellRequest handleUnknownException(HorntellResponse response) throws ServiceException, HorntellException {
+    private static Request handleUnknownException(Response response) throws ServiceException, Exception {
         String body = response.getBody();
         JSONObject errorObject = new JSONObject(body);
 
@@ -108,12 +109,12 @@ public class HorntellRequest {
 
                 // very generic error (if all else fails)
             default:
-                throw new HorntellException(message, errorCode, type);
+                throw new Exception(message, errorCode, type);
         }
 
     }
 
-    HorntellResponse doGetRequest(String url) throws IOException {
+    Response doGetRequest(String url) throws IOException {
 
         String credential = Credentials.basic(App.getKey(), App.getSecret());
 
@@ -124,13 +125,13 @@ public class HorntellRequest {
                 .addHeader("Content-Type", "text/json")
                 .build();
 
-        Response response = client.newCall(request).execute();
+        com.squareup.okhttp.Response response = client.newCall(request).execute();
 
-        return new HorntellResponse(response);
+        return new Response(response);
 
     }
 
-    private HorntellResponse doPostRequest(String url, Map<String, Object> params) throws IOException {
+    private Response doPostRequest(String url, Map<String, Object> params) throws IOException {
 
         String credential = Credentials.basic(App.getKey(), App.getSecret());
         String json = new JSONObject(params).toString();
@@ -145,12 +146,12 @@ public class HorntellRequest {
                 .post(body)
                 .build();
 
-        Response response = client.newCall(request).execute();
+        com.squareup.okhttp.Response response = client.newCall(request).execute();
 
-        return new HorntellResponse(response);
+        return new Response(response);
     }
 
-    private HorntellResponse doDeleteRequest(String url) throws IOException {
+    private Response doDeleteRequest(String url) throws IOException {
 
         String credential = Credentials.basic(App.getKey(), App.getSecret());
 
@@ -163,12 +164,12 @@ public class HorntellRequest {
                 .delete()
                 .build();
 
-        Response response = client.newCall(request).execute();
+        com.squareup.okhttp.Response response = client.newCall(request).execute();
 
-        return new HorntellResponse(response);
+        return new Response(response);
     }
 
-    private HorntellResponse doPutRequest(String url, Map<String, Object> params) throws IOException {
+    private Response doPutRequest(String url, Map<String, Object> params) throws IOException {
 
         String credential = Credentials.basic(App.getKey(), App.getSecret());
         String json = new JSONObject(params).toString();
@@ -183,8 +184,8 @@ public class HorntellRequest {
                 .put(body)
                 .build();
 
-        Response response = client.newCall(request).execute();
+        com.squareup.okhttp.Response response = client.newCall(request).execute();
 
-        return new HorntellResponse(response);
+        return new Response(response);
     }
 }

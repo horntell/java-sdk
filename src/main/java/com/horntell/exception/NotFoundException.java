@@ -1,6 +1,6 @@
 package com.horntell.exception;
 
-public class NotFoundException extends HorntellException {
+public class NotFoundException extends Exception {
 
 	public NotFoundException(String message, Integer code, String type, Throwable e) {
 		super(message, code, type, e);

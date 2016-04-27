@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.horntell.net;
+package com.horntell.http;
 
 import com.squareup.okhttp.ResponseBody;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-public class HorntellResponse {
+public class Response {
 
     public HashMap<String, Object> responseMap;
     ResponseBody responseOrignal;
     int responseCode;
     String responseBody;
 
-    public HorntellResponse(com.squareup.okhttp.Response response) throws IOException {
+    public Response(com.squareup.okhttp.Response response) throws IOException {
         this.responseOrignal = response.body();
         System.out.println("response code");
         System.out.println(response.code());
@@ -25,7 +25,7 @@ public class HorntellResponse {
         this.responseBody = response.body().string();
     }
 
-    HorntellResponse(HorntellResponse response) {
+    Response(Response response) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -44,7 +44,7 @@ public class HorntellResponse {
 
     @Override
     public String toString() {
-        return "HorntellResponse{" +
+        return "Response{" +
                 "responseOrignal=" + responseOrignal +
                 ", responseCode=" + responseCode +
                 ", responseBody='" + responseBody + '\'' +

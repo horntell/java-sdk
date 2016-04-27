@@ -1,8 +1,7 @@
-# Horntell 
+Horntell SDK for PHP
+====================
 
-# HORNTELL 
-
-Welcome to the Horntell Java SDK. The SDK is organized around REST. This SDK is a wrapper around the *cool* Horntell APIs.
+This SDK allows you to easily integrate Horntell in your Java applications.
 
 ### Authentication
 

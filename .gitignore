@@ -1,12 +1,9 @@
 /src/main/java/HorntellTest
-.idea/
-target/
-
 *.swp
 .classpath
 .project
 .settings
 tags
-target
-.idea
+target/
+.idea/
 *.iml

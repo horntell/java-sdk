@@ -15,8 +15,8 @@ Add this dependency to your project's POM.
 
 ```xml
 <dependency>
-  <groupId>com.stripe</groupId>
-  <artifactId>stripe-java</artifactId>
+  <groupId>com.horntell</groupId>
+  <artifactId>java-sdk</artifactId>
   <version>0.1.0</version>
 </dependency>
 ```
@@ -26,7 +26,7 @@ Add this dependency to your project's POM.
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.stripe:java-sdk:0.1.0"
+compile "com.horntell:java-sdk:0.1.0"
 ```
 
 ### Others
@@ -40,7 +40,7 @@ You'll need to manually install the following JARs:
 You need to `init`ialize the SDK with the app's key and secret, which you can find in your account at [http://app.horntell.com](http://app.horntell.com). Sample usage looks like this.
 
 ```java
-Horntell.App.init('YOUR_APP_KEY', 'YOUR_APP_SECRET');
+com.horntell.App.init('YOUR_APP_KEY', 'YOUR_APP_SECRET');
 
 Map<String,Object> newProfileMap = new HashMap<>();
 newProfileMap.put("uid", "1337");
@@ -48,7 +48,7 @@ newProfileMap.put("first_name", "John");
 newProfileMap.put("last_name", "Doe");
 newProfileMap.put("signedup_at", 1383350400);
 
-Horntell.Profile.create(newProfileMap);
+com.horntell.Profile.create(newProfileMap);
 ```
 
 ## Documentation

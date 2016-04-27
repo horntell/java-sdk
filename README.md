@@ -1,7 +1,11 @@
-Horntell SDK for PHP
-====================
+Horntell SDK for Java
+=====================
 
 This SDK allows you to easily integrate Horntell in your Java applications.
+
+## Requirements
+
+Java 1.6 and later.
 
 ### Authentication
 
